@@ -1,0 +1,31 @@
+{
+  "name": "passwords-server",
+  "version": "1.0.0",
+  "description": "Password management server",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/ --require babel-core/register --require babel-polyfill --recursive"
+  },
+  "author": "Jakub Zelenka",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.12.1",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.3",
+    "sinon-chai": "^3.3.0",
+    "supertest": "^3.4.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-async-handler": "^1.1.4"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
