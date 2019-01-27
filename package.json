@@ -13,7 +13,7 @@
     "lint": "./node_modules/.bin/eslint routes/** providers/** storage/** server.js",
     "lint:js": "npm run lint",
     "lint:fix": "npm run lint -- --fix",
-    "test": "./node_modules/.bin/mocha test/ --require babel-core/register --require babel-polyfill --recursive"
+    "test": "./node_modules/.bin/mocha test/ --require @babel/register --recursive"
   },
   "author": "Jakub Zelenka",
   "license": "ISC",
@@ -25,9 +25,6 @@
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
-    "babel-core": "^6.26.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "eslint": "^5.12.1",
     "mocha": "^5.2.0",
