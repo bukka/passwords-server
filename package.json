@@ -10,7 +10,7 @@
     "start": "node dist/server.js",
     "dev": "./node_modules/.bin/nodemon ./server.js --exec \"node -r @babel/register\"",
     "build": "npm run clean && mkdir -p dist && ./node_modules/.bin/babel src -s -D -d dist",
-    "lint": "./node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern  */",
+    "lint": "./node_modules/.bin/eslint routes/** providers/** storage/** server.js",
     "lint:js": "npm run lint",
     "lint:fix": "npm run lint -- --fix",
     "test": "./node_modules/.bin/mocha test/ --require babel-core/register --require babel-polyfill --recursive"

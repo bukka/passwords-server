@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import sinon from 'sinon'
+import sinon from 'sinon';
 import PasswordProvider from '../../providers/PasswordProvider';
 
 describe('PasswordProvider', () => {

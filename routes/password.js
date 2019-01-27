@@ -12,7 +12,7 @@ router.get('/:name', asyncHandler(async (req, res) => {
 
 router.post('/:name', asyncHandler(async(req, res) => {
   await provider.save(req.params.name, req.body.password);
-  res.status(201).send()
+  res.status(201).send();
 }));
 
 module.exports = router;

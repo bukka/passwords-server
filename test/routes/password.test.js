@@ -27,5 +27,5 @@ describe('Test password get route', () => {
       .send({password: 'abcd'})
       .set('Accept', 'application/json')
       .expect(201, done);
-  })
+  });
 });
