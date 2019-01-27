@@ -1,10 +1,18 @@
-import express from 'express';
+import { Router } from 'express';
+import asyncHandler from 'express-async-handler';
+import PasswordProvider from '../providers/PasswordProvider';
+import MemoryStorage from '../storage/MemoryStorage';
 
-module.exports = {
-  get: (req, res) => {
+const provider = new PasswordProvider(new MemoryStorage());
+const router = Router();
 
-  },
-  post: (req, res) => {
+router.get('/:name', asyncHandler(async (req, res) => {
+  res.status(200).json({ password: await provider.get(req.params.name) });
+}));
 
-  }
-};
+router.post('/:name', asyncHandler(async(req, res) => {
+  await provider.save(req.params.name, req.body.password);
+  res.status(201).send()
+}));
+
+module.exports = router;

@@ -4,28 +4,41 @@
   "description": "Password management server",
   "main": "server.js",
   "scripts": {
+    "precommit": "npm run lint",
+    "prepush": "npm run lint && npm run test",
+    "prestart": "npm run -s build",
+    "start": "node dist/server.js",
+    "dev": "./node_modules/.bin/nodemon ./server.js --exec \"node -r @babel/register\"",
+    "build": "npm run clean && mkdir -p dist && ./node_modules/.bin/babel src -s -D -d dist",
+    "lint": "./node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern  */",
+    "lint:js": "npm run lint",
+    "lint:fix": "npm run lint -- --fix",
     "test": "./node_modules/.bin/mocha test/ --require babel-core/register --require babel-polyfill --recursive"
   },
   "author": "Jakub Zelenka",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "eslint": "^5.12.1",
     "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
     "sinon": "^7.2.3",
     "sinon-chai": "^3.3.0",
     "supertest": "^3.4.1"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-async-handler": "^1.1.4"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
   }
 }
